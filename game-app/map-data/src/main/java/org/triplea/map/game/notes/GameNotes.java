@@ -10,11 +10,10 @@ import org.triplea.java.StringUtils;
 @UtilityClass
 public class GameNotes {
   /**
-   * Given the path to an XML file, reads an expected corresponding game notes and returns the
-   * contents of that file. Returns an empty String if the game notes file does not exist or if
-   * there are any errors reading the file.
-   *
-   * @param xmlGameFile Path to game-xml file whose game notes we will be loading.
+   * Dada la ruta a un archivo XML, lee las notas de juego correspondientes esperadas y devuelve el
+   * contenido de ese archivo. Devuelve una cadena vacía si el archivo de notas del juego no existe o si
+   * hay errores al leer el archivo.
+   * @param xmlGameFile Ruta al archivo game-xml cuyas notas de juego cargaremos.
    */
   public static String loadGameNotes(final Path xmlGameFile) {
     Preconditions.checkArgument(
@@ -34,8 +33,9 @@ public class GameNotes {
   }
 
   /**
-   * Given a game-xml-file, returns the expected name of the companion file that should contain the
-   * corresponding game (html) notes.
+   * Dado un archivo game-xml, devuelve el nombre esperado del
+   * archivo complementario que debe contener el 
+   * correspondiente juego (html).
    */
   static String createExpectedNotesFileName(final Path gameXmlFile) {
     Preconditions.checkArgument(
@@ -44,7 +44,7 @@ public class GameNotes {
     return StringUtils.truncateEnding(gameXmlFile.getFileName().toString(), ".xml") + ".notes.html";
   }
 
-  /** For a given game-xml-file, checks if there is a companion notes html file that exists. */
+  /** Para un archivo xml de juego determinado, comprueba si existe un archivo html de notas complementarias. */
   static boolean gameNotesFileExistsForGameXmlFile(final Path gameXmlFile) {
     Preconditions.checkArgument(
         gameXmlFile.getFileName().toString().endsWith(".xml"),
